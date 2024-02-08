@@ -41,7 +41,7 @@ export default {
             // trt-catch로 감싸면 response header가 200번대가 아니면 전부 catch로 빠진다.
             try {
                 const loginData = {email: this.email, password: this.password};
-                const response = await axios.post("http://localhost:8080/doLogin", loginData);
+                const response = await axios.post(`${process.env.VUE_APP_API_BASE_URL}/doLogin`, loginData);
                 const token = response.data.result.token;
                 if (token){
                     // 토큰 파싱 (디코딩)
@@ -71,7 +71,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

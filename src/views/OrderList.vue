@@ -1,7 +1,7 @@
 <template>
     <OrderListComponent
     :isAdmin="true"
-    apiUrl="http://localhost:8080/orders"
+    :apiUrl="`${process.env.VUE_APP_API_BASE_URL}/orders`"
     />
 </template>
 

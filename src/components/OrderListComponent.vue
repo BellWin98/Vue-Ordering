@@ -63,7 +63,7 @@ export default {
                 try{
                     const token = localStorage.getItem('token');
                     const headers = {Authorization: `Bearer ${token}`}
-                    await axios.delete(`http://localhost:8080/order/${orderId}/cancel`, {headers});
+                    await axios.delete(`${process.env.VUE_APP_API_BASE_URL}/order/${orderId}/cancel`, {headers});
                     const order = this.orderList.find(order => order.orderId === orderId);
                     order.orderStatus = "CANCELED";
                 }catch(error){

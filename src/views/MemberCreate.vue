@@ -60,7 +60,7 @@ export default {
                     street: this.street,
                     zipcode: this.zipcode,
                 };
-                await axios.post("http://localhost:8080/member/create", registerData);
+                await axios.post(`${process.env.VUE_APP_API_BASE_URL}/member/create`, registerData);
                 // window.location.href = "/login"; // HeaderComponent의 created 함수 동작함 (로그인 시 필요)
                 this.$router.push({name : "Login"}); // Login으로 라우터 푸시가 됨, HeaderComponent의 created 함수 미동작(토큰 자체가 필요 없으므로)
             } catch(error){
