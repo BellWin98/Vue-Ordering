@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router/index';
 import '@/assets/css/bootstrap.min.css';
 import axios from 'axios';
+import store from './store/cart.js';
 
 // index.html의 id인 app에 마운트가 되도록 하는 코드
 const app = createApp(App);
@@ -19,6 +20,7 @@ axios.interceptors.response.use(response => response, error => {
 })
 
 // vue application에서 전역적으로 기능을 사용할 경우, 아래와 같이 use문법 사용
-app.use(router)
+app.use(router);
+app.use(store);
 app.mount('#app');
 
