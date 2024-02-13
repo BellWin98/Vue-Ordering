@@ -1,7 +1,7 @@
 <template>
     <ItemListComponent
-    :isAdmin="false"
-    pageTitle="상품 목록"
+    :isAdmin="true"
+    pageTitle="상품 관리"
     />
 </template>
 
