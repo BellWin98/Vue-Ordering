@@ -1,7 +1,7 @@
 <template>
     <OrderListComponent
     :isAdmin="true"
-    :apiUrl="`${process.env.VUE_APP_API_BASE_URL}/member/${id}/orders`"
+    :apiUrl="`/member/${id}/orders`"
     />
 </template>
 

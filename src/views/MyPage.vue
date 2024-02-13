@@ -26,7 +26,7 @@
 </div>
     <OrderListComponent
     :isAdmin="false"
-    :apiUrl="`${process.env.VUE_APP_API_BASE_URL}/member/my-orders`"
+    apiUrl="/member/my-orders"
     />
 </template>
 

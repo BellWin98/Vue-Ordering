@@ -1,7 +1,8 @@
 <template>
+    <!-- env 환경변수는 Template에서 적용되지 않고, script에서만 적용되므로 Component단의 script에 ${}을 넣어줌 -->
     <OrderListComponent
     :isAdmin="true"
-    :apiUrl="`${process.env.VUE_APP_API_BASE_URL}/orders`"
+    apiUrl="/orders"
     />
 </template>
 
