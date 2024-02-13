@@ -6,7 +6,8 @@
             <th>#</th>
             <th>회원 Email</th>
             <th>주문 상태</th>
-            <th v-if="isAdmin === true">ACTION</th>
+            <!-- <th v-if="isAdmin === true">ACTION</th> -->
+            <th>ACTION</th>
         </thead>
         <tbody>
             <template v-for="order in orderList" :key="order.orderId">
@@ -14,7 +15,8 @@
                     <td>{{ order.orderId }}</td>
                     <td>{{ order.memberEmail }}</td>
                     <td>{{ order.orderStatus }}</td>
-                    <td v-if="isAdmin === true"><button v-if="order.orderStatus === 'ORDERED'" @click.stop="cancelOrder(order.orderId)">CANCEL</button></td>
+                    <!-- <td v-if="isAdmin === true"><button v-if="order.orderStatus === 'ORDERED'" @click.stop="cancelOrder(order.orderId)">CANCEL</button></td> -->
+                    <td><button v-if="order.orderStatus === 'ORDERED'" @click.stop="cancelOrder(order.orderId)">CANCEL</button></td>
                 </tr>
                 <tr v-if="visibleOrder.has(order.orderId)">
                     <td colspan="4">
