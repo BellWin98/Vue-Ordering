@@ -1,9 +1,12 @@
+// index.js는 Vue의 Entry Point다.
+
 import { createRouter, createWebHistory } from "vue-router";
 import HomeComponent from '@/components/HomeComponent.vue';
 import LoginComponent from '@/views/LoginComponent.vue';
 // export default인 경우에는 {} 필요없고, 여러개 요소가 있을 경우 {} 필요
 import { memberRoutes } from "./memberRouter.js";
 import { orderRoutes } from "./orderRouter.js";
+import { itemRoutes } from "./itemRouter.js";
 
 const routes = [
     {
@@ -20,6 +23,7 @@ const routes = [
     // memberRoutes의 요소를 가져와서 넣음
     ...memberRoutes,
     ...orderRoutes,
+    ...itemRoutes,
 ];
 
 const router = createRouter({
