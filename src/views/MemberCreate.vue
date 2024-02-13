@@ -29,7 +29,7 @@
                 <input type="text" v-model="zipcode" class="form-control">
             </div>
             <div class="form-group">
-                <button class="btn btn-primary mt-3" type="submit">가입 완료</button>
+                <button class="btn btn-primary mt-3 mr-2" type="submit">가입 완료</button>
                 <a class="btn btn-secondary mt-3" href="/">돌아가기</a>
             </div>
         </form>

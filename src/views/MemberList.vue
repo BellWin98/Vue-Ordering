@@ -37,7 +37,7 @@ export default {
         try {
             const token = localStorage.getItem('token');
             // 백틱 써서 javascript의 변수를 동적으로 활용
-            const headers = {Authorization: `Bearer ${token}`}
+            const headers = {Authorization: `Bearer ${token}`};
             const response = await axios.get(`${process.env.VUE_APP_API_BASE_URL}/members`, {headers});
             this.memberList = response.data.result;
         } catch(error){

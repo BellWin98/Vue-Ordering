@@ -52,6 +52,7 @@ export default {
                     // created 함수는 reload될 때 1번만 실행되는 Hook 함수
                     // 그런데, router.push를 통한 화면 전환은 reload를 실행시키지 않으므로, created 함수 호출이 되지 않음
                     // this.$router.push("/");
+                    alert("로그인 성공");
                     window.location.href = "/";
                 } else {
                     console.log("200 OK, but No Token"); // 개발자 디버깅 목적
