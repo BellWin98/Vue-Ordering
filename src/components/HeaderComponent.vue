@@ -15,14 +15,17 @@
                 <li class="nav-item" v-if="!isLogin">
                     <a class="nav-link" href="/member/create">회원가입</a>
                 </li>
-                <li class="nav-item" >
+                <li class="nav-item" v-if="userRole === 'ROLE_USER'">
                     <a class="nav-link" href="/items">상품 목록</a>
                 </li>
-                <li class="nav-item" v-if="isLogin">
+                <li class="nav-item" v-if="isLogin && userRole === 'ROLE_USER'">
                     <a class="nav-link" href="/mypage">마이페이지</a>
                 </li>
-                <li class="nav-item" v-if="isLogin">
-                    <a class="nav-link" href="/ordercart">장바구니</a>
+                <li class="nav-item" v-if="isLogin && userRole === 'ROLE_USER'">
+                    <!-- getTotalQuantity: getters의 함수명을 명시 -->
+                    <a class="nav-link" href="/ordercart">장바구니 ({{ getTotalQuantity }})</a>
+                    <!-- <a class="nav-link" href="/ordercart">장바구니 ({{ $store.state.totalQuantity }})</a> -->
+                    
                 </li>
                 <li class="nav-item" v-if="!isLogin">
                     <a class="nav-link" href="/login">로그인</a>
@@ -36,7 +39,22 @@
 </template>
 
 <script>
+// store의 getters 함수를 사용하기 위한 import (장바구니 로직과 관련 있음)
+import {mapGetters} from 'vuex';
+
 export default {
+    // computed는 종속된 반응형 데이터가 변경될 때만 함수를 다시 실행하여 값을 계산하는 계산 함수
+    // BasicComponent.vue에서 실습한 거 확인하면서 이해해보기
+    computed: {
+        // store 내의 변수 값이 변경되면, 이 computed 함수가 자동으로 실행되면서 변경됨. 실시간으로 변경된 값 반영
+        // 즉, 한 화면에서 분리된 컴포넌트 간 값의 변경이 생겼을 때 실시간으로 동기화 해줌.
+        // 상품을 장바구니에 추가하면, Header Component의 장바구니 버튼의 갯수가 상품 추가 수량만큼 변경된다.
+        ...mapGetters(['getTotalQuantity'])
+        // ...연산자(spread)를 통해 아래 함수를 현재 컴포넌트(getTotalQuantity)로 가져오는 것
+        // getTotalQuantity: function(){
+        //     return this.$store.getters.totalQuantity;
+        // }
+    },
     data () {
         return {
             isLogin: false,
@@ -60,7 +78,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
